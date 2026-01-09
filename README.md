@@ -116,4 +116,4 @@ cronやsystemdタイマーで定期実行することを想定しています。
 
 ## ライセンス
 
-MIT License
+Apache-2.0 License
