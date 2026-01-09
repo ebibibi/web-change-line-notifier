@@ -19,6 +19,7 @@ load_dotenv()
 LINE_CHANNEL_ACCESS_TOKEN = os.getenv("LINE_CHANNEL_ACCESS_TOKEN")
 LINE_USER_ID = os.getenv("LINE_USER_ID")
 TARGET_URL = os.getenv("TARGET_URL")
+NOTIFICATION_MESSAGE = os.getenv("NOTIFICATION_MESSAGE", "Webサイトが更新されました！")
 STATE_FILE = os.getenv("STATE_FILE", "state.json")
 
 
@@ -105,7 +106,7 @@ def main():
     elif previous_hash != current_hash:
         # 変更検知
         print("変更を検知しました！")
-        message = f"練馬Jazz祭りのサイトに変更がありました！\n\n{TARGET_URL}"
+        message = f"{NOTIFICATION_MESSAGE}\n\n{TARGET_URL}"
         send_line_message(message)
         state[TARGET_URL] = current_hash
         save_state(state)
